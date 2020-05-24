@@ -1,0 +1,98 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="categoria_form_view">
+        <field name="name">categoria.form</field>
+        <field name="model">sonderp.categoria</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="categoria_producto" string="Producto"/>
+                            <field name="categoria_grupo" string="Categoría"/>
+                            <field name="categoria_imagen" string="Imagen"/>
+                        </group>
+                        <group>
+                            <field name="categoria_state" string="Estado"/>
+                            <field name="categoria_requerido_umbral" string="Cantidad requerida"/>
+                            <field name="categoria_agotado_umbral" string="Cantidad mínima"/>
+                        </group>
+                        <div>
+                            <notebook>
+<!--                                <field name="proveedores" string="Proveedores"/>-->
+                            </notebook>
+                        </div>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="categoria_tree_view">
+        <field name="name">categoria.tree</field>
+        <field name="model">sonderp.categoria</field>
+        <field name="arch" type="xml">
+            <tree string="Lista Categorías" default_order='categoria_producto' delete="true">
+                <field name="categoria_producto" string="Producto"/>
+                <field name="categoria_grupo" string="Categoría"/>
+                <field name="categoria_state" string="Estado"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="categoria_kanban_view" model="ir.ui.view">
+        <field name="name">categoria.kanban</field>
+        <field name="model">sonderp.categoria</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile" default_order='categoria_producto desc' default_group_by="categoria_grupo">
+                <field name="categoria_producto" string="Producto"/>
+                <field name="categoria_grupo" string="Categoría"/>
+                <field name="categoria_state" string="Estado"/>
+    <!--                    <field name="location_dest_id"/>-->
+    <!--                    <field name="date"/>-->
+    <!--                    <field name="activity_state"/>-->
+    <!--                    <progressbar field="activity_state" colors='{"planned": "success", "today": "warning", "overdue": "danger"}'/>-->
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                            <div class="o_kanban_record_top mb8">
+                                <div class="o_kanban_record_headings">
+                                    <strong class="o_kanban_record_title"><span><t t-esc="record.categoria_producto.value"/></span></strong>
+                                </div>
+                                <strong>
+                                        <field name="categoria_state" widget="label_selection" options="{'classes': {'enable': 'success', 'disable': 'danger'}}"/>
+                                </strong>
+                            </div>
+                            <div class="o_kanban_record_bottom">
+                                <div class="oe_kanban_bottom_left">
+                                    <t t-esc="record.categoria_grupo.value"/>
+                                </div>
+<!--                                <div class="oe_kanban_bottom_right">-->
+<!--                                    <t t-esc="record.cantidad.value"/>-->
+<!--                                </div>-->
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="categoria_list_action">
+        <field name="name">Categoria</field>
+        <field name="res_model">sonderp.categoria</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Agrega un Producto
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="main_empresa_menu" name="Empresa"/>
+
+    <menuitem id="inventario_menu" name="Inventario" parent="main_empresa_menu"/>
+    <menuitem id="categoria_menu" name="Categoria" parent="inventario_menu" action="categoria_list_action"/>
+    <menuitem id="stock_menu" name="Stock" parent="inventario_menu" action="stock_list_action"/>
+  </data>
+</odoo>
