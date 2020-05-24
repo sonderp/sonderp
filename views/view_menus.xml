@@ -1,0 +1,11 @@
+<odoo>
+  <data>
+
+    <menuitem id="main_sonderp_menu" name="Sonderp_" sequence="1" web_icon="sonderp,static/description/icon.png"/>
+    <menuitem id="inventario_menu" name="Inventario" parent="main_sonderp_menu"/>
+    <menuitem id="compras_menu" name="Compra" parent="main_sonderp_menu"/>
+    <menuitem id="ventas_menu" name="Ventas" parent="main_sonderp_menu"/>
+    <menuitem id="facturacion_menu" name="Facturación" parent="main_sonderp_menu"/>
+
+  </data>
+</odoo>
