@@ -34,7 +34,7 @@ class Ordenesventa(models.Model):
     venta_cuotas_vendidas = fields.Integer(String="Cuotas vendidad")
     venta_costo_cuotas = fields.Float(String="Costo por cuota")
     venta_total = fields.Float(String="Total")
-    venta_state = fields.Selection(String="Estado")
+    venta_state = fields.Selection([('a1', 'tipo1'), ('a2', 'tipo2')], String="Estado", required=True)
     venta_date = fields.Datetime(string='Fecha', default=fields.Datetime.now)
     venta_oferta = fields.Many2many("sonderp.precios", string="Asistentes")
     #venta_factura = fields.One2many()
