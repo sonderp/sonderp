@@ -44,13 +44,16 @@ class Ordenescompra (models.Model):
 class Proveedores (models.Model):
     _name = 'sonderp.proveedores'
     _description = 'Tabla de records de los proveedores'
+    _rec_name = "proveedor_name"
 
     # Campos de la tabla sonderp.proveedores
     proveedor_name = fields.Char(
-        string="Nombre de la empresa/proveedor"
+        string="Nombre de la empresa/proveedor",
+        required=True
     )
-    proveedor_nit = fields.Field(
-        string="NIT"
+    proveedor_nit = fields.Integer(
+        string="NIT",
+        required=True
     )
     proveedor_address = fields.Char(
         string="Direccion de la empresa/Proveedor"

@@ -80,7 +80,7 @@ class Impuestos(models.Model):
          ('1', '4X100')],
         string="Tipo de impuesto"
     )
-    impuesto_valor = fields.Field(
+    impuesto_valor = fields.Float(
         string="Valor del impuesto"
     )
     impuesto_momento = fields.Selection(
