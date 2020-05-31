@@ -8,6 +8,22 @@
             <field name="arch" type="xml">
                 <form string="Ordenes de Compra">
                     <sheet>
+                        <header>
+                            <field name="compra_date" class="oe_title" readonly="1"/>
+                        </header>
+                        <group>
+                            <group>
+                                <field name="compra_cantidad"/>
+                                <field name="compra_cuotas"/>
+                            </group>
+                            <group>
+                                <field name="compra_cuotas_pagadas"/>
+                                <field name="compra_total"/>
+                            </group>
+                        </group>
+                        <footer>
+                            <field name="compra_state"/>
+                        </footer>
                     </sheet>
                 </form>
             </field>
@@ -18,7 +34,22 @@
             <field name="model">sonderp.compra</field>
             <field name="arch" type="xml">
                 <tree string="Ordenes de Compra">
+                    <field name="compra_cuotas_pagadas"/>
+                    <field name="compra_cuotas"/>
+                    <field name="compra_cantidad"/>
+                    <field name="compra_costo"/>
+                    <field name="compra_date"/>
                 </tree>
+            </field>
+        </record>
+
+        <record id="view_buy_calendar" model="ir.ui.view">
+            <field name="name">sonderp.buy.calendar</field>
+            <field name="model">sonderp.compra</field>
+            <field eval="2" name="priority"/>
+            <field name="arch" type="xml">
+                <calendar>
+                </calendar>
             </field>
         </record>
 
@@ -26,12 +57,12 @@
             <field name="name">sonderp.compra.search</field>
             <field name="model">sonderp.compra</field>
             <field name="arch" type="xml">
-<!--                <search string="ModelTitle">
+                <search string="compra_cantidad">
                     <group expand="1" string="Group By">
-                        <filter string="Example Field" name="example_field" domain="[]"
-                                context="{'group_by':'example_field'}"/>
+<!--                        <filter string="Example Field" name="example_field" domain="[]"-->
+<!--                                context="{'group_by':'example_field'}"/>-->
                     </group>
-                </search>-->
+                </search>
             </field>
         </record>
 
@@ -39,7 +70,7 @@
             <field name="name">Orden de Compra</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">sonderp.compra</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,calendar</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
                     Ordenes de Compra
@@ -47,9 +78,9 @@
             </field>
         </record>
 
-        <menuitem name="sonderp_compra"
+        <menuitem name="Ordenes de compra"
                   id="sonderp_compra_menu"
-                  parent=""
-                  action="sonderp_compra_act_window"/>
+                  parent="compras_menu"
+                  action="sonderp.compra_act_window"/>
     </data>
 </odoo>
