@@ -48,7 +48,8 @@ class Facturacioncompras(models.Model):
         string="Fecha de Factura",
     )
     billc_id = fields.Char(
-        string="Factura ID"
+        string="Factura ID",
+        required=True
     )
     billc_cuota = fields.Float(
         string="No de Cuota"
