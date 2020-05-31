@@ -29,12 +29,12 @@ class Ordenesventa(models.Model):
     _name = "sonderp.venta"
     _description = "Registro de ventas"
 
-    venta_cantidad = fields.Integer()
-    venta_cuotas = fields.Integer()
-    venta_cuotas_vendidas = fields.Integer()
-    venta_costo_cuotas = fields.Float()
-    venta_total = fields.Float()
-    venta_state = fields.Selection()
+    venta_cantidad = fields.Integer(String="Cantidad")
+    venta_cuotas = fields.Integer(String="Cuotas")
+    venta_cuotas_vendidas = fields.Integer(String="Cuotas vendidad")
+    venta_costo_cuotas = fields.Float(String="Costo por cuota")
+    venta_total = fields.Float(String="Total")
+    venta_state = fields.Selection(String="Estado")
     venta_date = fields.Datetime(string='Fecha', default=fields.Datetime.now)
     venta_oferta = fields.Many2many("sonderp.precios", string="Asistentes")
     #venta_factura = fields.One2many()
