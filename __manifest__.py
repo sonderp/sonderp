@@ -10,8 +10,11 @@
     'depends': ['base'],
     'data': [
         # 'security/security.xml'
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
+        'views/view_menus.xml',
         'views/view_buy.xml',
+        'views/view_category.xml',
+        'views/view_stock.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
