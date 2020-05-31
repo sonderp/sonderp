@@ -8,19 +8,52 @@
             <field name="arch" type="xml">
                 <form string="Ordenes de Compra">
                     <sheet>
-                        <header>
-                            <field name="compra_date" class="oe_title" readonly="1"/>
-                        </header>
+                        <div>
+                            <h1>
+                                <label for="compra_id"/>
+                                <field name="compra_id" class="oe_title"/>
+                            </h1>
+                        </div>
                         <group>
                             <group>
                                 <field name="compra_cantidad"/>
                                 <field name="compra_cuotas"/>
+                                <field name="compra_date" />
                             </group>
                             <group>
                                 <field name="compra_cuotas_pagadas"/>
                                 <field name="compra_total"/>
                             </group>
+                            <group>
+                                <field name="compra_costo_cuotas"/>
+                                <field name="compra_state"/>
+                            </group>
                         </group>
+                        <notebook>
+                            <page string="Proveedores">
+                                <field name="compra_proveedores_name"  widget="many2many">
+                                    <tree>
+                                        <field name="proveedor_name"/>
+                                        <field name="proveedor_nit"/>
+                                        <field name="proveedor_address"/>
+                                        <field name="proveedor_city"/>
+                                        <field name="proveedor_type"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="En vitrina">
+                                <field name="compra_stock_enable"  widget="many2many">
+                                    <tree>
+                                        <field name="stock_producto"/>
+                                        <field name="stock_grupo"/>
+                                        <field name="stock_date"/>
+                                        <field name="stock_cantidad_total"/>
+                                        <field name="stock_cantidad_enable"/>
+                                        <field name="stock_cantidad_disable"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
                         <footer>
                             <field name="compra_state"/>
                         </footer>

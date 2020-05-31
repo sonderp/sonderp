@@ -3,9 +3,12 @@ from odoo import fields, models, api
 
 class Ordenescompra (models.Model):
     _name = 'sonderp.compra'
-    _description = 'Tabla de records de la facturacion de ventas'
+    _description = 'Tabla de records de la Ordenes de Compra'
 
     # Campos de la tabla sonderp.compra
+    compra_id = fields.Char(
+        string="ID Orden"
+    )
     compra_date = fields.Datetime(
         string="Fecha de Orden de Compra"
     )

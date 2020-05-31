@@ -24,6 +24,30 @@
                                 <field name="proveedor_city"/>
                             </group>
                         </group>
+                        <notebook>
+                            <page string="Facturas del Proveedor">
+                                <field name="proveedor_bill_buy"  widget="many2many">
+                                    <tree>
+                                        <field name="billc_id"/>
+                                        <field name="billc_fecha"/>
+                                        <field name="billc_total"/>
+                                        <field name="billc_medio_de_pago"/>
+                                        <field name="billc_cuota"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Productos">
+                                <field name="proveedor_categoria"  widget="many2many">
+                                    <tree>
+                                        <field name="categoria_producto"/>
+                                        <field name="categoria_grupo"/>
+                                        <field name="categoria_state"/>
+                                        <field name="categoria_requerido_umbral"/>
+                                        <field name="categoria_agotado_umbral"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>
