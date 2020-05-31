@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="sell_form_view">
+        <field name="name">venta.form</field>
+        <field name="model">sonderp.venta</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="venta_oferta"/>
+                            <field name="venta_cantidad"/>
+                            <field name="venta_total"/>
+                        </group>
+                        <group>
+                            <field name="venta_client"/>
+                            <field name="venta_cuotas"/>
+                            <field name="venta_date"/>
+                        </group>
+                        <div>
+                            <notebook>
+<!--                                <field name="proveedores" string="Proveedores"/>-->
+                            </notebook>
+                        </div>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="sell_tree_view">
+        <field name="name">venta.tree</field>
+        <field name="model">sonderp.venta</field>
+        <field name="arch" type="xml">
+            <tree string="Lista de ordenes de venta" default_order='venta_date' delete="false">
+                <field name="venta_client"/>
+                <field name="venta_cuotas"/>
+                <field name="venta_total"/>
+                <field name="venta_cuotas_vendidas"/>
+                <field name="venta_state"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="sell_list_action">
+        <field name="name">Venta</field>
+        <field name="res_model">sonderp.venta</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Agrega una orden de venta
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="sell_menu" name="Ordenes de venta" parent="ventas_menu" action="sell_list_action"/>
+
+  </data>
+</odoo>
