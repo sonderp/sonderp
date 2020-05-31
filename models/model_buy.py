@@ -40,6 +40,15 @@ class Ordenescompra (models.Model):
 
     # Campos Relacionales de la tabla sonderp.compra
 
+    compra_proveedores_name = fields.Many2many(
+        comodel_name="sonderp.proveedores",
+        string="Proveedores"
+    )
+    compra_stock_enable = fields.Many2many(
+        comodel_name="sonderp.stock",
+        string="Productos Disponibles"
+    )
+
 
 class Proveedores (models.Model):
     _name = 'sonderp.proveedores'
@@ -66,3 +75,12 @@ class Proveedores (models.Model):
     )
 
     # Campos Relacionales de la tabla sonderp.proveedores
+
+    proveedor_bill_buy = fields.One2many(
+        comodel_name="sonderp.facturacioncompras",
+        inverse_name="billc_proveedor_name"
+    )
+    proveedor_categoria = fields.Many2many(
+        comodel_name="sonderp.categoria",
+        string="Productos"
+    )

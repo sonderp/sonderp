@@ -7,6 +7,15 @@ class Facturacionventas(models.Model):
 
     # Campos de la tabla sonderp.facturacionventas
 
+    billv_client_name = fields.Char(
+        related="billv_name_client.client_name",
+        string="Nombre del cliente"
+    )
+    billv_cuotas = fields.Integer(
+        string="Numero de Cuotas",
+        related="billv_bill_sell.venta_cuotas"
+    )
+
     billv_fecha = fields.Datetime(
         string="Fecha de Factura",
     )
@@ -36,11 +45,24 @@ class Facturacionventas(models.Model):
     )
 
     # Campos Relacionales de la tabla sonderp.facturacionventas
+    billv_impuesto_names = fields.Many2many(
+        comodel_name='sonderp.impuestos',
+        string="Impuestos Disponibles"
+    )
+    billv_name_client = fields.Many2one(
+        comodel_name='sonderp.clientes',
+        string="Cliente"
+    )
+    billv_bill_sell = fields.Many2one(
+        comodel_name="sonderp.venta",
+        string="Orden de Venta"
+    )
 
 
 class Facturacioncompras(models.Model):
     _name = 'sonderp.facturacioncompras'
     _description = 'Tabla de records de la facturacion de Compras'
+    _rec_name = "billc_id"
 
     # Campos de la tabla sonderp.facturacioncompras
 
@@ -51,8 +73,9 @@ class Facturacioncompras(models.Model):
         string="Factura ID",
         required=True
     )
-    billc_cuota = fields.Float(
-        string="No de Cuota"
+    billc_cuota = fields.Integer(
+        related="billc_compra_cuotas.compra_cuotas",
+        string="No de Cuotas"
     )
     billc_total = fields.Integer(
         string="Valor Total"
@@ -66,10 +89,19 @@ class Facturacioncompras(models.Model):
 
     # Campos Relacionales de la tabla sonderp.facturacioncompras
 
+    billc_proveedor_name = fields.Many2one(
+        comodel_name="sonderp.proveedores",
+        string="Nombre del Proveedor",
+    )
+
+    billc_compra_cuotas = fields.Many2one(
+        comodel_name="sonderp.compra")
+
 
 class Impuestos(models.Model):
     _name = 'sonderp.impuestos'
     _description = 'Tabla de records de los impuestos asociados al negocio'
+    _rec_name = "impuesto_name"
 
     # Campos de la tabla sonderp.impuestos
 

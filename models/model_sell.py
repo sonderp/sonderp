@@ -37,6 +37,6 @@ class Ordenesventa(models.Model):
     venta_state = fields.Selection([('a1', 'tipo1'), ('a2', 'tipo2')], String="Estado", required=True)
     venta_date = fields.Datetime(string='Fecha', default=fields.Datetime.now)
     venta_oferta = fields.Many2many("sonderp.precios", string="Asistentes")
-    #venta_factura = fields.One2many()
+    venta_factura = fields.One2many(comodel_name="sonderp.facturacionventas", inverse_name='billv_bill_sell')
     venta_client = fields.Many2one("sonderp.clientes", ondelete="cascade", string="Cliente", index=True)
 
