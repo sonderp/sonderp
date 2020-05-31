@@ -1,0 +1,75 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="price_form_view">
+        <field name="name">precios.form</field>
+        <field name="model">sonderp.precios</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="precios_ganancia"/>
+                            <field name="precios_promocion"/>
+                            <field name="precios_ofertas"/>
+                            <field name="precios_fecha"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="price_kanban_view" model="ir.ui.view">
+        <field name="name">precios.kanban</field>
+        <field name="model">sonderp.precios</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="precios_ganancia"/>
+                <field name="precios_promocion"/>
+                <field name="precios_ofertas"/>
+                <field name="precios_fecha"/>
+    <!--                    <field name="location_dest_id"/>-->
+    <!--                    <field name="date"/>-->
+    <!--                    <field name="activity_state"/>-->
+    <!--                    <progressbar field="activity_state" colors='{"planned": "success", "today": "warning", "overdue": "danger"}'/>-->
+<!--                <templates>-->
+<!--                    <t t-name="kanban-box">-->
+<!--                        <div t-attf-class="oe_kanban_card oe_kanban_global_click">-->
+<!--                            <div class="o_kanban_record_top mb8">-->
+<!--                                <div class="o_kanban_record_headings">-->
+<!--                                    <strong class="o_kanban_record_title"><span><t t-esc="record.stock_producto.value"/></span></strong>-->
+<!--                                </div>-->
+<!--                                <strong>-->
+<!--                                        <field name="stock_state" widget="label_selection" options="{'classes': {'a4': 'default', 'a3': 'success', 'a2': 'warning', 'a1': 'danger'}}"/>-->
+<!--                                </strong>-->
+<!--                            </div>-->
+<!--                            <div class="o_kanban_record_bottom">-->
+<!--                                <div class="oe_kanban_bottom_left">-->
+<!--                                    <t t-esc="record.stock_grupo.value"/>-->
+<!--                                </div>-->
+<!--&lt;!&ndash;                                <div class="oe_kanban_bottom_right">&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <t t-esc="record.cantidad.value"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                </div>&ndash;&gt;-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </t>-->
+<!--                </templates>-->
+            </kanban>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="price_list_action">
+        <field name="name">Precios</field>
+        <field name="res_model">sonderp.precios</field>
+        <field name="view_mode">kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Agrega precio a un producto
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="price_menu" name="Precios" parent="ventas_menu" action="price_list_action"/>
+
+  </data>
+</odoo>
