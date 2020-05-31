@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="sonderp_billsell_form_view" model="ir.ui.view">
+            <field name="name">sonderp.facturacionventas.form</field>
+            <field name="model">sonderp.facturacionventas</field>
+            <field name="arch" type="xml">
+                <form string="Facturación para cliente">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="billv_id"/>
+                            <h1>
+                                <field name="billv_id"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="billv_fecha"/>
+                                <field name="billv_cuota"/>
+                            </group>
+                            <group>
+                                <field name="billv_total"/>
+                                <field name="billv_sin_impuesto"/>
+                                <field name="billv_impuesto"/>
+                            </group>
+                            <group>
+                                <field name="billv_medio_de_pago"/>
+                                <field name="billv_cuenta_pago"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="sonderp_billsell_tree_view" model="ir.ui.view">
+            <field name="name">sonderp.facturacionventas.tree</field>
+            <field name="model">sonderp.facturacionventas</field>
+            <field name="arch" type="xml">
+                <tree string="Facturación para cliente">
+                    <field name="billv_id"/>
+                    <field name="billv_fecha"/>
+                    <field name="billv_cuota"/>
+                    <field name="billv_total"/>
+                    <field name="billv_sin_impuesto"/>
+                    <field name="billv_impuesto"/>
+                    <field name="billv_medio_de_pago"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="sonderp_billsell_calendar_view" model="ir.ui.view">
+            <field name="name">sonderp.facturacionventas.calendar</field>
+            <field name="model">sonderp.facturacionventas</field>
+            <field name="arch" type="xml">
+                <calendar>
+                </calendar>
+            </field>
+        </record>
+
+        <record id="sonderp_billsell_search_view" model="ir.ui.view">
+            <field name="name">sonderp.facturacionventas.search</field>
+            <field name="model">sonderp.facturacionventas</field>
+            <field name="arch" type="xml">
+                <search string="Facturación de venta">
+<!--                    <group expand="1" string="Group By">
+                        <filter string="Example Field" name="example_field" domain="[]"
+                                context="{'group_by':'example_field'}"/>
+                    </group>-->
+                </search>
+            </field>
+        </record>
+
+        <record id="sonderp.billsell_act_window" model="ir.actions.act_window">
+            <field name="name">Facturación de venta</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sonderp.facturacionventas</field>
+            <field name="view_mode">tree,form,calendar</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    No existen Facturas de Ventas
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Facturación de Venta"
+                  id="sonderp_billsell_menu"
+                  parent="facturacion_menu"
+                  action="sonderp.billsell_act_window"/>
+
+    </data>
+</odoo>
