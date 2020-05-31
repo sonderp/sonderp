@@ -8,7 +8,7 @@ class Clientes(models.Model):
 
     client_name = fields.Char(String="Nombre", required=True)
     client_id = fields.Char(String="Id", required=True)
-    client_type = fields.Selection([('0','tipo1'), ('1', 'tipo2')], String="Tipo", required=True)
+    client_type = fields.Selection([('0', 'tipo1'), ('1', 'tipo2')], String="Tipo", required=True)
     client_address = fields.Char(String="Direccion")
     client_city = fields.Char(String="Ciudad")
     client_contacto1 = fields.Integer(String="Telefono")
