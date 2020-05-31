@@ -13,8 +13,12 @@
         'security/ir.model.access.csv',
         'views/view_menus.xml',
         'views/view_buy.xml',
+        'views/view_supplier.xml',
         'views/view_category.xml',
-        'views/view_stock.xml'
+        'views/view_stock.xml',
+        'views/view_tax.xml',
+        'views/view_bill_buy.xml',
+        'views/view_bill_sell.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
