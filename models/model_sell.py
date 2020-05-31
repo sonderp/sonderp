@@ -8,7 +8,7 @@ class Clientes(models.Model):
 
     client_name = fields.Char(String="Nombre", required=True)
     client_id = fields.Char(String="Id", required=True)
-    client_type = fields.Selection(String="Tipo", required=True)
+    client_type = fields.Selection([('0','tipo1'), ('1', 'tipo2')], String="Tipo", required=True)
     client_address = fields.Char(String="Direccion")
     client_city = fields.Char(String="Ciudad")
     client_contacto1 = fields.Integer(String="Telefono")
@@ -34,7 +34,7 @@ class Ordenesventa(models.Model):
     venta_cuotas_vendidas = fields.Integer()
     venta_costo_cuotas = fields.Float()
     venta_total = fields.Float()
-    venta_state = fields.Selection()
+    venta_state = fields.Selection([('0','tipo1'), ('1', 'tipo2')])
     venta_date = fields.Datetime(string='Fecha', default=fields.Datetime.now)
     venta_oferta = fields.Many2many("sonderp.precios", string="Asistentes")
     #venta_factura = fields.One2many()
