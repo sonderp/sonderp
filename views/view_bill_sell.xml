@@ -9,10 +9,20 @@
                 <form string="Facturación para cliente">
                     <sheet>
                         <div class="oe_title">
-                            <label for="billv_id"/>
                             <h1>
-                                <field name="billv_id"/>
+                                <label for="billv_client_name"/>
+                                <field name="billv_client_name"/>
                             </h1>
+                            <h3>
+                                <label for="billv_id"/>
+                                <field name="billv_id"/>
+                            </h3>
+                        </div>
+                        <div class="oe_right">
+                            <h2>
+                                <label for="billv_bill_sell"/>
+                                <field name="billv_bill_sell"/>
+                            </h2>
                         </div>
                         <group>
                             <group>
@@ -28,7 +38,22 @@
                                 <field name="billv_medio_de_pago"/>
                                 <field name="billv_cuenta_pago"/>
                             </group>
+                            <group>
+                                <field name="billv_name_client"/>
+                            </group>
                         </group>
+                        <notebook>
+                            <page string="Impuestos">
+                                <field name="billv_impuesto_names">
+                                    <tree>
+                                        <field name="impuesto_name"/>
+                                        <field name="impuesto_tipo"/>
+                                        <field name="impuesto_valor"/>
+                                        <field name="impuesto_momento"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>

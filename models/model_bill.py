@@ -65,7 +65,10 @@ class Facturacioncompras(models.Model):
     _rec_name = "billc_id"
 
     # Campos de la tabla sonderp.facturacioncompras
-
+    billc_proveedor_name = fields.Char(
+        related="billc_proveedor.proveedor_name",
+        string="Nombre del Proveedor"
+    )
     billc_fecha = fields.Datetime(
         string="Fecha de Factura",
     )
@@ -74,7 +77,7 @@ class Facturacioncompras(models.Model):
         required=True
     )
     billc_cuota = fields.Integer(
-        related="billc_compra_cuotas.compra_cuotas",
+        related="billc_compra_orden.compra_cuotas",
         string="No de Cuotas"
     )
     billc_total = fields.Integer(
@@ -89,13 +92,15 @@ class Facturacioncompras(models.Model):
 
     # Campos Relacionales de la tabla sonderp.facturacioncompras
 
-    billc_proveedor_name = fields.Many2one(
+    billc_proveedor = fields.Many2one(
         comodel_name="sonderp.proveedores",
         string="Nombre del Proveedor",
     )
 
-    billc_compra_cuotas = fields.Many2one(
-        comodel_name="sonderp.compra")
+    billc_compra_orden = fields.Many2one(
+        comodel_name="sonderp.compra",
+        string="Orden de Compra"
+    )
 
 
 class Impuestos(models.Model):

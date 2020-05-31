@@ -9,13 +9,24 @@
                 <form string="Facturación de compra">
                     <sheet>
                         <div class="oe_title">
-                            <label for="billc_id"/>
                             <h1>
-                                <field name="billc_id"/>
+                                <label for="billc_proveedor_name"/>
+                                <field name="billc_proveedor_name"/>
                             </h1>
+                            <h3>
+                                <label for="billc_id"/>
+                                <field name="billc_id"/>
+                            </h3>
+                        </div>
+                        <div class="oe_right">
+                            <h2>
+                                <label for="billc_compra_orden"/>
+                                <field name="billc_compra_orden"/>
+                            </h2>
                         </div>
                         <group>
                             <group>
+                                <field name="billc_proveedor"/>
                                 <field name="billc_fecha"/>
                                 <field name="billc_cuota"/>
                             </group>
@@ -35,6 +46,7 @@
             <field name="arch" type="xml">
                 <tree string="Facturación de compra">
                     <field name="billc_id"/>
+                    <field name="billc_proveedor_name"/>
                     <field name="billc_fecha"/>
                     <field name="billc_cuota"/>
                     <field name="billc_total"/>
