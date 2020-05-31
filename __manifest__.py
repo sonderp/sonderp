@@ -19,6 +19,9 @@
         'views/view_tax.xml',
         'views/view_bill_buy.xml',
         'views/view_bill_sell.xml'
+        'views/view_client.xml',
+        'views/view_price.xml',
+        'views/view_sell.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
