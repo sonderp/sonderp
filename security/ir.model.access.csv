@@ -1,1 +1,11 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sonderp_1,access.sonderp.1,model_sonderp_categoria,,1,1,1,1
+access_sonderp_2,access.sonderp.2,model_sonderp_stock,,1,1,1,1
+access_sonderp_3,access.sonderp.3,model_sonderp_clientes,,1,1,1,1
+access_sonderp_4,access.sonderp.4,model_sonderp_precios,,1,1,1,1
+access_sonderp_5,access.sonderp.5,model_sonderp_venta,,1,1,1,1
+access_sonderp_6,access.sonderp.6,model_sonderp_facturacionventas,,1,1,1,1
+access_sonderp_7,access.sonderp.7,model_sonderp_facturacioncompras,,1,1,1,1
+access_sonderp_8,access.sonderp.8,model_sonderp_impuestos,,1,1,1,1
+access_sonderp_9,access.sonderp.9,model_sonderp_compra,,1,1,1,1
+access_sonderp_10,access.sonderp.10,model_sonderp_proveedores,,1,1,1,1
