@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="client_form_view">
+        <field name="name">clientes.form</field>
+        <field name="model">sonderp.clientes</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="client_type"/>
+                            <field name="client_name"/>
+                            <field name="client_id"/>
+                        </group>
+                        <group>
+                            <field name="client_contacto1"/>
+                            <field name="client_contacto2"/>
+                            <field name="client_city"/>
+                            <field name="client_address"/>
+                        </group>
+                        <div>
+                            <notebook>
+<!--                                <field name="proveedores" string="Proveedores"/>-->
+                            </notebook>
+                        </div>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="client_tree_view">
+        <field name="name">clientes.tree</field>
+        <field name="model">sonderp.clientes</field>
+        <field name="arch" type="xml">
+            <tree string="Lista de clientes" default_order='client_name' delete="true">
+                <field name="client_type"/>
+                <field name="client_name"/>
+                <field name="client_id"/>
+                <field name="client_contacto1"/>
+                <field name="client_contacto2"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="client_list_action">
+        <field name="name">Clientes</field>
+        <field name="res_model">sonderp.clientes</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Agrega un cliente
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="client_menu" name="Clientes" parent="ventas_menu" action="client_list_action"/>
+
+  </data>
+</odoo>

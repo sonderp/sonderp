@@ -89,10 +89,7 @@
         </field>
     </record>
 
-    <menuitem id="main_empresa_menu" name="Empresa"/>
-
-    <menuitem id="inventario_menu" name="Inventario" parent="main_empresa_menu"/>
     <menuitem id="categoria_menu" name="Categoria" parent="inventario_menu" action="categoria_list_action"/>
-    <menuitem id="stock_menu" name="Stock" parent="inventario_menu" action="categoria_list_action"/>
+
   </data>
 </odoo>
