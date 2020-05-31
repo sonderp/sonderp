@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="sonderp_impuesto_form_view" model="ir.ui.view">
+            <field name="name">sonderp.impuestos.form</field>
+            <field name="model">sonderp.impuestos</field>
+            <field name="arch" type="xml">
+                <form string="Impuesto">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="impuesto_name"/>
+                            <h1>
+                                <field name="impuesto_name" placeholder="Nombre del impuesto ..."/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="impuesto_tipo"/>
+                            </group>
+                            <group>
+                                <field name="impuesto_valor"/>
+                                <field name="impuesto_momento"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="sonderp_impuesto_tree_view" model="ir.ui.view">
+            <field name="name">sonderp.impuestos.tree</field>
+            <field name="model">sonderp.impuestos</field>
+            <field name="arch" type="xml">
+                <tree string="Impuesto">
+                    <field name="impuesto_name"/>
+                    <field name="impuesto_tipo"/>
+                    <field name="impuesto_valor"/>
+                    <field name="impuesto_tipo"/>
+                    <field name="impuesto_momento"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="sonderp_impuesto_calendar_view" model="ir.ui.view">
+            <field name="name">sonderp.impuestos.calendar</field>
+            <field name="model">sonderp.impuestos</field>
+            <field name="arch" type="xml">
+                <calendar>
+                </calendar>
+            </field>
+        </record>
+
+        <record id="sonderp_impuesto_search_view" model="ir.ui.view">
+            <field name="name">sonderp.impuestos.search</field>
+            <field name="model">sonderp.impuestos</field>
+            <field name="arch" type="xml">
+                <search string="Impuestos">
+<!--                    <group expand="1" string="Group By">
+                        <filter string="Example Field" name="example_field" domain="[]"
+                                context="{'group_by':'example_field'}"/>
+                    </group>-->
+                </search>
+            </field>
+        </record>
+
+        <record id="sonderp.impuesto_act_window" model="ir.actions.act_window">
+            <field name="name">Impuestos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sonderp.impuestos</field>
+            <field name="view_mode">tree,form,calendar</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    No existen impuestos registrados al sistema.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Impuestos"
+                  id="sonderp_impuesto_menu"
+                  parent="facturacion_menu"
+                  action="sonderp.impuesto_act_window"/>
+
+    </data>
+</odoo>

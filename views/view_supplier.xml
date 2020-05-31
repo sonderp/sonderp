@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="sonderp_proveedor_form_view" model="ir.ui.view">
+            <field name="name">sonderp.proveedores.form</field>
+            <field name="model">sonderp.proveedores</field>
+            <field name="arch" type="xml">
+                <form string="Proveedores">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="proveedor_name"/>
+                            <h1>
+                                <field name="proveedor_name" placeholder="Nombre del proveedor ...."/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="proveedor_nit"/>
+                                <field name="proveedor_type"/>
+                            </group>
+                            <group>
+                                <field name="proveedor_address"/>
+                                <field name="proveedor_city"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="sonderp_proveedor_tree_view" model="ir.ui.view">
+            <field name="name">sonderp.proveedores.tree</field>
+            <field name="model">sonderp.proveedores</field>
+            <field name="arch" type="xml">
+                <tree string="Proveedores">
+                    <field name="proveedor_name"/>
+                    <field name="proveedor_nit"/>
+                    <field name="proveedor_address"/>
+                    <field name="proveedor_city"/>
+                    <field name="proveedor_type"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="sonderp_proveedor_search_view" model="ir.ui.view">
+            <field name="name">sonderp.proveedores.search</field>
+            <field name="model">sonderp.proveedores</field>
+            <field name="arch" type="xml">
+                <search string="Proveedores">
+<!--                    <group expand="1" string="Group By">-->
+<!--                        <filter string="Example Field" name="example_field" domain="[]"-->
+<!--                                context="{'group_by':'example_field'}"/>-->
+<!--                    </group>-->
+                </search>
+            </field>
+        </record>
+
+        <record id="sonderp.proveedores_act_window" model="ir.actions.act_window">
+            <field name="name">Listado de Proveedores</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sonderp.proveedores</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    No existen proveedores registrados al sistema.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Proveedores"
+                  id="sonderp_proveedores_menu"
+                  parent="compras_menu"
+                  action="sonderp.proveedores_act_window"/>
+
+    </data>
+</odoo>
