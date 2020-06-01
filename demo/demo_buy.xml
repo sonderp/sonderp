@@ -1,0 +1,8 @@
+<odoo>
+    <data noupdate="1">
+        <record id="sample_record_1" model="sonderp.facturacioncompras">
+            <field name="name">First record</field>
+        </record>
+
+    </data>
+</odoo>

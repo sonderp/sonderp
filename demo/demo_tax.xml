@@ -1,0 +1,11 @@
+<odoo>
+    <data noupdate="1">
+        <record id="sample_record_1" model="sonderp.facturacioncompras">
+            <field name="impuesto_name"></field>
+            <field name="impuesto_tipo"></field>
+            <field name="impuesto_valor"></field>
+            <field name="impuesto_momento"></field>
+        </record>
+
+    </data>
+</odoo>
